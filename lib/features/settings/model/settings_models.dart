@@ -55,6 +55,27 @@ class SettingsCatalogue {
 
   static const List<SettingsSection> sections = [
     SettingsSection(
+      titleKey: 'settings_section_ai',
+      tiles: [
+        SettingsTile(
+          id: 'play_earn',
+          titleKey: 'settings_play_earn',
+          subtitleKey: 'settings_play_earn_subtitle',
+          icon: Icons.games_rounded,
+          iconColor: Color(0xFFFF6B35),
+          type: SettingsTileType.navigate,
+        ),
+        SettingsTile(
+          id: 'hen_blitz_guide',
+          titleKey: 'settings_hen_blitz_guide',
+          subtitleKey: 'settings_hen_blitz_guide_subtitle',
+          icon: Icons.sports_esports_rounded,
+          iconColor: Color(0xFFE8B45A),
+          type: SettingsTileType.navigate,
+        ),
+      ],
+    ),
+    SettingsSection(
       titleKey: 'settings_section_appearance',
       tiles: [
         SettingsTile(id: 'dark_mode',    titleKey: 'settings_dark_mode',    icon: Icons.dark_mode_rounded,       iconColor: Color(0xFF5C6BC0), type: SettingsTileType.toggle),

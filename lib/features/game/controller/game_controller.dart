@@ -10,6 +10,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import 'package:get/get.dart';
+import 'package:spend_smart/features/coach/controller/ai_credits_controller.dart';
 import 'package:spend_smart/features/home/controller/home_controller.dart';
 import 'package:spend_smart/features/subscription/controller/subscription_controller.dart';
 import 'package:spend_smart/features/game/models/game_models.dart';
@@ -61,10 +62,15 @@ class GameController extends GetxController {
     // Accumulate AI credits
     totalAiCredits.value += result.aiCreditsEarned;
 
-    // In production:
-    //   1. Save personalBest to SharedPreferences
-    //   2. Call Cloud Function to record score (uses result.sessionHash)
-    //   3. Award AI credits to the parent app
+    // Award AI credits to the credits wallet if credits were earned
+    if (result.aiCreditsEarned > 0 &&
+        Get.isRegistered<AiCreditsController>()) {
+      AiCreditsController.to.earnCredits(
+        amount: result.aiCreditsEarned,
+        description: 'Hen Blitz — ${result.distanceMeters}m run',
+        gameId: 'hen_blitz',
+      );
+    }
   }
 
   // ── Can the user play another game today? ─────────────────────────────────

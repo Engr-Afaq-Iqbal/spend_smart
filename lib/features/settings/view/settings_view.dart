@@ -6,15 +6,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controller/settings_controller.dart';
-import '../model/settings_models.dart';
-import '../widgets/settings_tile_widgets.dart';
-import '../widgets/profile_header_card.dart';
-import '../widgets/upgrade_banner.dart';
-import '../widgets/settings_footer.dart';
+
 import '../../../core/constants/app_spacing.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/theme/theme_controller.dart';
+import '../controller/settings_controller.dart';
+import '../model/settings_models.dart';
+import '../widgets/profile_header_card.dart';
+import '../widgets/settings_footer.dart';
+import '../widgets/settings_tile_widgets.dart';
+import '../widgets/upgrade_banner.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -41,22 +42,22 @@ class SettingsView extends StatelessWidget {
       body: ListView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.fromLTRB(
-          AppSpacing.pagePadding, AppSpacing.lg,
-          AppSpacing.pagePadding, AppSpacing.xxxl,
+          AppSpacing.pagePadding,
+          AppSpacing.lg,
+          AppSpacing.pagePadding,
+          AppSpacing.xxxl,
         ),
         children: [
           const ProfileHeaderCard(),
           const SizedBox(height: AppSpacing.lg),
           const UpgradeBanner(),
           const SizedBox(height: AppSpacing.xxl),
-
           ...SettingsCatalogue.sections.map(
             (section) => _SettingsSectionBlock(
               section: section,
               controller: controller,
             ),
           ),
-
           const SizedBox(height: AppSpacing.lg),
           const SettingsFooter(),
         ],
@@ -69,7 +70,8 @@ class _SettingsSectionBlock extends StatelessWidget {
   final SettingsSection section;
   final SettingsController controller;
 
-  const _SettingsSectionBlock({required this.section, required this.controller});
+  const _SettingsSectionBlock(
+      {required this.section, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -145,12 +147,13 @@ class _AccentColorTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.lg, vertical: AppSpacing.md),
+              horizontal: AppSpacing.lg, vertical: AppSpacing.md),
           child: Row(
             children: [
               // Icon pill
               Container(
-                width: 36, height: 36,
+                width: 36,
+                height: 36,
                 decoration: BoxDecoration(
                   color: tile.iconColor.withOpacity(0.14),
                   borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
@@ -169,7 +172,8 @@ class _AccentColorTile extends StatelessWidget {
               ),
               // Live color swatch
               Obx(() => Container(
-                    width: 24, height: 24,
+                    width: 24,
+                    height: 24,
                     margin: const EdgeInsets.only(right: AppSpacing.sm),
                     decoration: BoxDecoration(
                       color: themeCtrl.accentColor.value,
@@ -185,7 +189,10 @@ class _AccentColorTile extends StatelessWidget {
               Icon(
                 Icons.chevron_right_rounded,
                 size: 20,
-                color: Theme.of(context).colorScheme.onBackground.withOpacity(0.35),
+                color: Theme.of(context)
+                    .colorScheme
+                    .onBackground
+                    .withOpacity(0.35),
               ),
             ],
           ),

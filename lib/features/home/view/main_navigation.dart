@@ -34,7 +34,7 @@ import 'package:get/get.dart';
 
 import '../../../core/constants/app_colors.dart';
 import '../../../core/theme/theme_controller.dart';
-import '../../coach/view/coach_view.dart';
+import '../../coach/view/ai_coach_view.dart';
 import '../../expenses/view/expenses_view.dart';
 import '../../reports/view/reports_view.dart';
 import '../../transaction/widgets/add_transaction_sheet.dart';
@@ -83,7 +83,7 @@ class MainNavigation extends StatelessWidget {
     HomeView(),
     ExpensesView(),
     ReportsView(),
-    CoachView(),
+    AiCoachView(),
   ];
 
   @override

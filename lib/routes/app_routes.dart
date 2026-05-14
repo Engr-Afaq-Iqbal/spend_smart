@@ -6,6 +6,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../features/coach/controller/ai_credits_controller.dart';
 import '../features/game/controller/game_controller.dart';
 import '../features/game/hen_blitz_screen.dart';
 import '../features/game/models/game_models.dart';
@@ -15,7 +16,9 @@ import '../features/game/screens/score_share_card_screen.dart';
 import '../features/game/screens/threats_guide_screen.dart';
 import '../features/home/view/main_navigation.dart';
 import '../features/settings/controller/settings_controller.dart';
+import '../features/settings/view/profile_view.dart';
 import '../features/settings/view/settings_view.dart';
+import '../features/settings/widgets/play_earn_view.dart';
 import '../features/subscription/controller/subscription_controller.dart';
 import '../features/subscription/view/subscription_view.dart';
 import '../features/transaction/controller/transaction_controller.dart';
@@ -28,6 +31,8 @@ import 'app_bindings.dart';
 abstract class AppRoutes {
   static const String home = '/';
   static const String settings = '/settings';
+  static const String profile = '/profile';
+  static const String playEarn = '/play-earn';
   static const String addExpense = '/add-expense';
   static const String addIncome = '/add-income';
   static const String voiceExpense = '/voice-expense';
@@ -58,6 +63,23 @@ class AppPages {
         Get.lazyPut<SettingsController>(() => SettingsController());
       }),
       transition: Transition.cupertino, // iOS-style slide from right
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: AppRoutes.profile,
+      page: () => const ProfileView(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: AppRoutes.playEarn,
+      page: () => const PlayEarnView(),
+      binding: BindingsBuilder(() {
+        if (!Get.isRegistered<AiCreditsController>()) {
+          Get.put<AiCreditsController>(AiCreditsController(), permanent: true);
+        }
+      }),
+      transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: 300),
     ),
     GetPage(

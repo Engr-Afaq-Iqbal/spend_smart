@@ -12,9 +12,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
+import 'controllers/font_size_controller.dart';
+import 'core/l10n/app_translations.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_controller.dart';
-import 'core/l10n/app_translations.dart';
+import 'features/coach/controller/ai_credits_controller.dart';
 import 'routes/app_routes.dart';
 
 void main() {
@@ -22,6 +25,8 @@ void main() {
 
   // Register ThemeController BEFORE runApp — permanent so it never gets disposed
   Get.put<ThemeController>(ThemeController(), permanent: true);
+  Get.put<FontSizeController>(FontSizeController(), permanent: true); // ← NEW
+  Get.put<AiCreditsController>(AiCreditsController(), permanent: true); // ← NEW
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -50,7 +55,7 @@ class SpendSmartApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
 
           // ── Theme — rebuilt with current accent on every color change ─
-          theme:     AppTheme.buildLight(themeCtrl.accentColor.value),
+          theme: AppTheme.buildLight(themeCtrl.accentColor.value),
           darkTheme: AppTheme.buildDark(themeCtrl.accentColor.value),
           themeMode: themeCtrl.themeMode,
 

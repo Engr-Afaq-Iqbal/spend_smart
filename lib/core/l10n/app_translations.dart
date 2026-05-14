@@ -182,12 +182,18 @@ class AppTranslations extends Translations {
     'settings_upgrade_subtitle': 'Advanced AI insights, unlimited reports & more',
     'settings_upgrade_start': 'Start',
 
+    'settings_section_ai': 'AI & GAMES',
     'settings_section_appearance': 'APPEARANCE',
     'settings_section_language': 'LANGUAGE & REGION',
     'settings_section_security': 'SECURITY',
     'settings_section_data': 'DATA',
     'settings_section_notifications': 'NOTIFICATIONS',
     'settings_section_account': 'ACCOUNT',
+
+    'settings_play_earn': 'Play & Earn AI Credits',
+    'settings_play_earn_subtitle': 'Mini-games & daily bonuses',
+    'settings_hen_blitz_guide': 'Hen Blitz Game Hub',
+    'settings_hen_blitz_guide_subtitle': 'Guides, personal best & play',
 
     'settings_dark_mode': 'Dark Mode',
     'settings_font_size': 'Font Size',
@@ -551,12 +557,18 @@ class AppTranslations extends Translations {
     'settings_upgrade_subtitle': 'تحليلات ذكاء اصطناعي متقدمة وتقارير غير محدودة والمزيد',
     'settings_upgrade_start': 'ابدأ',
 
+    'settings_section_ai': 'الذكاء الاصطناعي والألعاب',
     'settings_section_appearance': 'المظهر',
     'settings_section_language': 'اللغة والمنطقة',
     'settings_section_security': 'الأمان',
     'settings_section_data': 'البيانات',
     'settings_section_notifications': 'الإشعارات',
     'settings_section_account': 'الحساب',
+
+    'settings_play_earn': 'العب واربح رصيد AI',
+    'settings_play_earn_subtitle': 'ألعاب مصغرة ومكافآت يومية',
+    'settings_hen_blitz_guide': 'مركز لعبة Hen Blitz',
+    'settings_hen_blitz_guide_subtitle': 'الأدلة وأفضل النتائج',
 
     'settings_dark_mode': 'الوضع المظلم',
     'settings_font_size': 'حجم الخط',

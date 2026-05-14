@@ -10,7 +10,9 @@ import 'package:get/get.dart';
 import '../model/settings_models.dart';
 import '../widgets/accent_color_picker.dart';
 import '../../../core/constants/app_colors.dart';
+import '../../../core/constants/font_size_picker.dart';
 import '../../../core/theme/theme_controller.dart';
+import '../../../routes/app_routes.dart';
 
 class SettingsController extends GetxController {
   ThemeController get _themeCtrl => Get.find<ThemeController>();
@@ -44,10 +46,18 @@ class SettingsController extends GetxController {
       case 'accent_color':
         AccentColorPicker.show(Get.context!);
         break;
+      case 'font_size':
+        FontSizePicker.show(Get.context!);
+        break;
+      case 'play_earn':
+        Get.toNamed(AppRoutes.playEarn);
+        break;
+      case 'hen_blitz_guide':
+        Get.toNamed(AppRoutes.henBlitz);
+        break;
       case 'language':
         _showLanguagePicker();
         break;
-      case 'font_size':
       case 'currency':
       case 'pin_code':
       case 'auto_lock':
@@ -74,7 +84,7 @@ class SettingsController extends GetxController {
     if (id == 'delete_account') _confirmDeleteAccount();
   }
 
-  void onProfileTap() => _showComingSoon('profile_edit');
+  void onProfileTap() => Get.toNamed(AppRoutes.profile);
 
   void onUpgradeTap() {
     Get.snackbar(
